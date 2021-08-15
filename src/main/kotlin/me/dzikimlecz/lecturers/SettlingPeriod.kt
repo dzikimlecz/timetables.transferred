@@ -12,6 +12,8 @@ data class SettlingPeriod(
 
     override fun toString(): String = "{${start.format(ISO_LOCAL_DATE)}::${end.format(ISO_LOCAL_DATE)}}"
 
+    operator fun contains(date: LocalDate) = date in start..end
+
     companion object {
         private val pattern = Regex("\\{\\d{4}(-\\d{2}){2}::\\d{4}(-\\d{2}){2}}")
 
