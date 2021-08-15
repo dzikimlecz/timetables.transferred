@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter.ISO_LOCAL_DATE
 
 data class SettlingPeriod(
     val start: LocalDate,
-    val end: LocalDate,
+    val end: LocalDate = start.plusDays(4),
 ) {
     init { require (start < end) { "Start date: $start must be earlier than the end date: $end" } }
 
