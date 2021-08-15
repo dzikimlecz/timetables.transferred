@@ -1,5 +1,6 @@
 package me.dzikimlecz.timetables
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
@@ -9,11 +10,12 @@ class TimeSpan private constructor(val start: LocalTime, val end: LocalTime) {
 
     init { require(start.isBefore(end)) { "Start must be before an end" } }
 
+
     val minutes: Long
-        get() = start.until(end, MINUTES)
+        @JsonIgnore get() = start.until(end, MINUTES)
 
     val duration: LocalTime
-        get() = LocalTime.of(minutes.toInt() / 60, minutes.toInt() % 60)
+        @JsonIgnore get() = LocalTime.of(minutes.toInt() / 60, minutes.toInt() % 60)
 
     override fun toString(): String {
         val formatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)
