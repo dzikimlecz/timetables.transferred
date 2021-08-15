@@ -5,8 +5,8 @@ import kotlin.collections.HashMap
 data class Lecturer(
     val name: String,
     val code: String =
-        name.split(Regex("\\s"))
-            .joinToString(separator = "") { it[0].toString().toUpperCase() },
+        name.trim().split(Regex("\\s"))
+            .joinToString(separator = "") { it[0].toString().uppercase() },
     val hoursWorked: Map<SettlingPeriod, Int>
 ) {
 
