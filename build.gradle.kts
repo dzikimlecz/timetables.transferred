@@ -1,12 +1,12 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.4.31"
-    kotlin("plugin.serialization") version "1.4.32"
+    kotlin("jvm") version "1.5.0"
+    kotlin("plugin.serialization") version "1.5.0"
 }
 
 group = "me.dzikimlecz"
-version = "0.0.1-SNAPSHOT"
+version = "1"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
@@ -14,8 +14,11 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1")
+    implementation(group = "com.fasterxml.jackson.core", name = "jackson-annotations", version = "2.4.3")
+    implementation(group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version = "1.0.1")
+    implementation(group = "org.jetbrains.kotlin", name = "kotlin-stdlib")
+    testImplementation(group = "org.junit.jupiter", name = "junit-jupiter-api", version = "5.7.0")
+    testRuntimeOnly(group = "org.junit.jupiter", name = "junit-jupiter-engine", version = "5.7.0")
 }
 
 tasks.withType<KotlinCompile> {
