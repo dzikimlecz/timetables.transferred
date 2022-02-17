@@ -6,15 +6,19 @@ plugins {
 }
 
 group = "me.dzikimlecz"
-version = "1"
+version = "1.0.1"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
-    implementation(group = "com.fasterxml.jackson.core", name = "jackson-annotations", version = "2.4.3")
+    implementation("com.fasterxml.jackson.core:jackson-core:2.13.1")
+    implementation("com.fasterxml.jackson.core:jackson-annotations:2.13.1")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.13.1")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
     implementation(group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version = "1.0.1")
     implementation(group = "org.jetbrains.kotlin", name = "kotlin-stdlib")
     testImplementation(group = "org.junit.jupiter", name = "junit-jupiter-api", version = "5.7.0")
