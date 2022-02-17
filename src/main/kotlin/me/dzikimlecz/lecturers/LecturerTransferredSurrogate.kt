@@ -8,7 +8,7 @@ data class LecturerTransferredSurrogate(
     val name: String,
     @Required val code: String =
         name.split(Regex("\\s"))
-            .joinToString(separator = "") { it[0].toString().toUpperCase() },
+            .joinToString(separator = "") { it[0].toString().uppercase() },
     val hoursWorked: Map<String, Int>,
 ) {
     fun toLecturer() =
